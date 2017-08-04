@@ -1,1 +1,1 @@
-
+Array, String, Pointer

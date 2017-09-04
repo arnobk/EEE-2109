@@ -16,17 +16,17 @@ class Sub{
 };
 class Multi:public Add,public Sub{
     private:
-        void getdata_M(double,double);
+        void getdata_M();
+    public:
         double x1,x2;
-    public:
-        double multi(double,double);
+        double multi();
 };
-class Div:public Add,public Sub{
+class Div:public Multi{
     private:
-        void getdata_D(double,double);
-        double y1,y2;
+        void getdata_D();
     public:
-        double div(double,double);
+        double div();
+        double y1,y2;
 };
 
 void Add::getData1(){
@@ -45,29 +45,25 @@ double Sub::subtract(){
     getData2();
     return n3-n4;
 }
-void Multi::getdata_M(double a1,double a2){
-    x1 = a1;
-    x2 = a2;
+void Multi::getdata_M(){
+    x1 = addition();
+    x2 = subtract();
 }
-double Multi::multi(double a1,double a2){
-    getdata_M(a1,a2);
+double Multi::multi(){
+    getdata_M();
     return x1*x2;
 }
-void Div::getdata_D(double b1,double b2){
-    y1 = b1;
-    y2 = b2;
+void Div::getdata_D(){
+    y1 = addition();
+    y2 = subtract();
 }
-double Div::div(double b1,double b2){
-    getdata_D(b1,b2);
+double Div::div(){
+    getdata_D();
     return y1/y2;
 }
 int main(){
-    Add add;
-    Sub sub;
     Multi m;
     Div d;
-    double a = add.addition();
-    double b = sub.subtract();
-    cout<<"Ans of Multiplication of result of Addition and Subtraction: "<<m.multi(a,b)<<endl;
-    cout<<"Ans of Division of result of Addition and Subtraction: "<<d.div(a,b)<<endl;
+    cout<<"Ans of Multiplication of result of Addition and Subtraction: "<<m.multi()<<endl;
+    cout<<"Ans of Division of result of Addition and Subtraction: "<<d.div()<<endl;
 }

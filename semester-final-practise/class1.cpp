@@ -1,3 +1,4 @@
+/* Fibonacchi using constructor Function */
 #include<iostream>
 using namespace std;
     int f0 = 0;
